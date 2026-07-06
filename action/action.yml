@@ -1,0 +1,79 @@
+name: "culler — Vulnerability Triage"
+description: "Run culler vulnerability triage on scanner output and optionally fail the build"
+author: "sumeetghimire"
+
+inputs:
+  scanner-output:
+    description: "Path to scanner JSON output (grype/trivy/osv-scanner)"
+    required: true
+  format:
+    description: "Output format: terminal, json, sarif, markdown"
+    required: false
+    default: "sarif"
+  output-file:
+    description: "Write report to this file (required for sarif upload)"
+    required: false
+    default: "culler-results.sarif"
+  fail-on:
+    description: "Fail the build if findings exist at or above this tier: act-now, out-of-cycle, scheduled"
+    required: false
+    default: "act-now"
+  policy:
+    description: "Path to .culler.yaml policy file"
+    required: false
+    default: ".culler.yaml"
+  version:
+    description: "culler version to download (default: latest)"
+    required: false
+    default: "latest"
+
+outputs:
+  report-path:
+    description: "Path to the generated report file"
+    value: ${{ steps.scan.outputs.report-path }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Install culler
+      shell: bash
+      run: |
+        set -e
+        VERSION="${{ inputs.version }}"
+        if [ "$VERSION" = "latest" ]; then
+          VERSION=$(curl -sSf https://api.github.com/repos/sumeetghimire/culler/releases/latest | grep '"tag_name"' | sed 's/.*"tag_name": *"\(.*\)".*/\1/')
+        fi
+        OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+        ARCH=$(uname -m)
+        [ "$ARCH" = "x86_64" ] && ARCH="amd64"
+        [ "$ARCH" = "aarch64" ] && ARCH="arm64"
+        curl -sSfL "https://github.com/sumeetghimire/culler/releases/download/${VERSION}/culler_${OS}_${ARCH}.tar.gz" | tar -xz -C /usr/local/bin
+        chmod +x /usr/local/bin/culler
+        culler version
+
+    - name: Run culler scan
+      id: scan
+      shell: bash
+      run: |
+        set -e
+        FAIL_FLAG=""
+        if [ -n "${{ inputs.fail-on }}" ]; then
+          FAIL_FLAG="--fail-on ${{ inputs.fail-on }}"
+        fi
+        POLICY_FLAG=""
+        if [ -f "${{ inputs.policy }}" ]; then
+          POLICY_FLAG="--policy ${{ inputs.policy }}"
+        fi
+        culler scan "${{ inputs.scanner-output }}" \
+          --format "${{ inputs.format }}" \
+          --output "${{ inputs.output-file }}" \
+          $POLICY_FLAG \
+          $FAIL_FLAG || true
+        echo "report-path=${{ inputs.output-file }}" >> $GITHUB_OUTPUT
+
+    - name: Upload SARIF to GitHub Code Scanning
+      if: inputs.format == 'sarif'
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ inputs.output-file }}
+        category: culler

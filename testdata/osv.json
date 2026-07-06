@@ -1,0 +1,132 @@
+{
+  "results": [
+    {
+      "source": {
+        "path": "/app/requirements.txt",
+        "type": "lockfile"
+      },
+      "packages": [
+        {
+          "package": {
+            "name": "Pillow",
+            "version": "9.3.0",
+            "ecosystem": "PyPI"
+          },
+          "vulnerabilities": [
+            {
+              "id": "GHSA-56pw-mpj4-fxww",
+              "aliases": ["CVE-2023-44271"],
+              "summary": "Pillow uncontrolled resource consumption when textlength in ImageDraw.textlength() is large",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                }
+              ],
+              "affected": [
+                {
+                  "package": {
+                    "name": "Pillow",
+                    "ecosystem": "PyPI"
+                  },
+                  "ranges": [
+                    {
+                      "type": "ECOSYSTEM",
+                      "events": [
+                        {"introduced": "0"},
+                        {"fixed": "10.0.0"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "groups": [
+            {"ids": ["GHSA-56pw-mpj4-fxww", "CVE-2023-44271"]}
+          ]
+        },
+        {
+          "package": {
+            "name": "cryptography",
+            "version": "38.0.4",
+            "ecosystem": "PyPI"
+          },
+          "vulnerabilities": [
+            {
+              "id": "GHSA-x4qr-2fvf-3mr5",
+              "aliases": ["CVE-2023-23931"],
+              "summary": "cryptography vulnerable to NULL dereference in PKCS12 parsing",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:H"
+                }
+              ],
+              "affected": [
+                {
+                  "package": {
+                    "name": "cryptography",
+                    "ecosystem": "PyPI"
+                  },
+                  "ranges": [
+                    {
+                      "type": "ECOSYSTEM",
+                      "events": [
+                        {"introduced": "0"},
+                        {"fixed": "39.0.1"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "groups": [
+            {"ids": ["GHSA-x4qr-2fvf-3mr5", "CVE-2023-23931"]}
+          ]
+        },
+        {
+          "package": {
+            "name": "requests",
+            "version": "2.28.1",
+            "ecosystem": "PyPI"
+          },
+          "vulnerabilities": [
+            {
+              "id": "GHSA-j8r2-6x86-q33q",
+              "aliases": ["CVE-2023-32681"],
+              "summary": "Requests forwards proxy-authorization header to destination servers",
+              "severity": [
+                {
+                  "type": "CVSS_V3",
+                  "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N"
+                }
+              ],
+              "affected": [
+                {
+                  "package": {
+                    "name": "requests",
+                    "ecosystem": "PyPI"
+                  },
+                  "ranges": [
+                    {
+                      "type": "ECOSYSTEM",
+                      "events": [
+                        {"introduced": "2.1.0"},
+                        {"fixed": "2.31.0"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "groups": [
+            {"ids": ["GHSA-j8r2-6x86-q33q", "CVE-2023-32681"]}
+          ]
+        }
+      ]
+    }
+  ]
+}

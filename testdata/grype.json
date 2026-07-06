@@ -1,0 +1,437 @@
+{
+  "matches": [
+    {
+      "vulnerability": {
+        "id": "CVE-2021-44228",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2021-44228",
+        "namespace": "nvd:cpe",
+        "severity": "Critical",
+        "urls": ["https://nvd.nist.gov/vuln/detail/CVE-2021-44228"],
+        "description": "Apache Log4j2 2.0-beta9 through 2.15.0 JNDI features do not protect against attacker controlled LDAP and other JNDI related endpoints.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H",
+            "metrics": {
+              "baseScore": 10.0,
+              "exploitabilityScore": 3.9,
+              "impactScore": 6.0
+            },
+            "vendorMetadata": {},
+            "source": "nvd@nist.gov"
+          }
+        ],
+        "fix": {
+          "versions": ["2.15.0"],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [
+        {
+          "type": "cpe-match",
+          "matcher": "java-matcher",
+          "searchedBy": {},
+          "found": {}
+        }
+      ],
+      "artifact": {
+        "id": "a1b2c3d4e5f60001",
+        "name": "log4j-core",
+        "version": "2.14.1",
+        "type": "java-archive",
+        "language": "java",
+        "licenses": ["Apache-2.0"],
+        "cpes": ["cpe:2.3:a:apache:log4j:2.14.1:*:*:*:*:*:*:*"],
+        "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2022-22965",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2022-22965",
+        "namespace": "nvd:cpe",
+        "severity": "Critical",
+        "urls": ["https://nvd.nist.gov/vuln/detail/CVE-2022-22965"],
+        "description": "A Spring MVC or Spring WebFlux application running on JDK 9+ may be vulnerable to remote code execution (RCE) via data binding.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "metrics": {
+              "baseScore": 9.8,
+              "exploitabilityScore": 3.9,
+              "impactScore": 5.9
+            },
+            "vendorMetadata": {},
+            "source": "nvd@nist.gov"
+          }
+        ],
+        "fix": {
+          "versions": ["5.3.18", "5.2.20"],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [],
+      "artifact": {
+        "id": "a1b2c3d4e5f60002",
+        "name": "spring-webmvc",
+        "version": "5.3.16",
+        "type": "java-archive",
+        "language": "java",
+        "licenses": ["Apache-2.0"],
+        "cpes": ["cpe:2.3:a:vmware:spring_framework:5.3.16:*:*:*:*:*:*:*"],
+        "purl": "pkg:maven/org.springframework/spring-webmvc@5.3.16",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2023-44487",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2023-44487",
+        "namespace": "nvd:cpe",
+        "severity": "High",
+        "urls": ["https://nvd.nist.gov/vuln/detail/CVE-2023-44487"],
+        "description": "The HTTP/2 protocol allows a denial of service (server resource consumption) because request cancellation can reset many streams quickly.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "metrics": {
+              "baseScore": 7.5,
+              "exploitabilityScore": 3.9,
+              "impactScore": 3.6
+            },
+            "vendorMetadata": {},
+            "source": "nvd@nist.gov"
+          }
+        ],
+        "fix": {
+          "versions": ["2.7.18"],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [],
+      "artifact": {
+        "id": "a1b2c3d4e5f60003",
+        "name": "tomcat-embed-core",
+        "version": "9.0.70",
+        "type": "java-archive",
+        "language": "java",
+        "licenses": ["Apache-2.0"],
+        "cpes": ["cpe:2.3:a:apache:tomcat:9.0.70:*:*:*:*:*:*:*"],
+        "purl": "pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.70",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2022-42889",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2022-42889",
+        "namespace": "nvd:cpe",
+        "severity": "Critical",
+        "urls": ["https://nvd.nist.gov/vuln/detail/CVE-2022-42889"],
+        "description": "Apache Commons Text performs variable interpolation allowing properties lookup. A specially crafted string could cause RCE.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "metrics": {
+              "baseScore": 9.8,
+              "exploitabilityScore": 3.9,
+              "impactScore": 5.9
+            },
+            "vendorMetadata": {},
+            "source": "nvd@nist.gov"
+          }
+        ],
+        "fix": {
+          "versions": ["1.10.0"],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [],
+      "artifact": {
+        "id": "a1b2c3d4e5f60004",
+        "name": "commons-text",
+        "version": "1.9",
+        "type": "java-archive",
+        "language": "java",
+        "licenses": ["Apache-2.0"],
+        "cpes": ["cpe:2.3:a:apache:commons_text:1.9:*:*:*:*:*:*:*"],
+        "purl": "pkg:maven/org.apache.commons/commons-text@1.9",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2022-1471",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2022-1471",
+        "namespace": "nvd:cpe",
+        "severity": "Critical",
+        "urls": ["https://nvd.nist.gov/vuln/detail/CVE-2022-1471"],
+        "description": "SnakeYaml's Constructor class, which inherits from SafeConstructor, allows any type unserialization leading to RCE.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+            "metrics": {
+              "baseScore": 9.8,
+              "exploitabilityScore": 3.9,
+              "impactScore": 5.9
+            },
+            "vendorMetadata": {},
+            "source": "nvd@nist.gov"
+          }
+        ],
+        "fix": {
+          "versions": ["2.0"],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [],
+      "artifact": {
+        "id": "a1b2c3d4e5f60005",
+        "name": "snakeyaml",
+        "version": "1.30",
+        "type": "java-archive",
+        "language": "java",
+        "licenses": ["Apache-2.0"],
+        "cpes": ["cpe:2.3:a:snakeyaml_project:snakeyaml:1.30:*:*:*:*:*:*:*"],
+        "purl": "pkg:maven/org.yaml/snakeyaml@1.30",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2021-3156",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2021-3156",
+        "namespace": "nvd:cpe",
+        "severity": "High",
+        "urls": ["https://nvd.nist.gov/vuln/detail/CVE-2021-3156"],
+        "description": "Sudo before 1.9.5p2 contains an off-by-one error that can lead to a heap-based buffer overflow allowing privilege escalation.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+            "metrics": {
+              "baseScore": 7.8,
+              "exploitabilityScore": 1.8,
+              "impactScore": 5.9
+            },
+            "vendorMetadata": {},
+            "source": "nvd@nist.gov"
+          }
+        ],
+        "fix": {
+          "versions": ["1.9.5p2"],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [],
+      "artifact": {
+        "id": "a1b2c3d4e5f60006",
+        "name": "sudo",
+        "version": "1.8.31",
+        "type": "deb",
+        "language": "",
+        "licenses": ["ISC"],
+        "cpes": ["cpe:2.3:a:sudo_project:sudo:1.8.31:*:*:*:*:*:*:*"],
+        "purl": "pkg:deb/ubuntu/sudo@1.8.31",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2021-29425",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2021-29425",
+        "namespace": "nvd:cpe",
+        "severity": "Medium",
+        "urls": ["https://nvd.nist.gov/vuln/detail/CVE-2021-29425"],
+        "description": "In Apache Commons IO before 2.7, when invoking the method FileNameUtils.normalize with an improper input string, a path traversal is possible.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N",
+            "metrics": {
+              "baseScore": 4.8,
+              "exploitabilityScore": 2.2,
+              "impactScore": 2.5
+            },
+            "vendorMetadata": {},
+            "source": "nvd@nist.gov"
+          }
+        ],
+        "fix": {
+          "versions": ["2.7"],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [],
+      "artifact": {
+        "id": "a1b2c3d4e5f60007",
+        "name": "commons-io",
+        "version": "2.6",
+        "type": "java-archive",
+        "language": "java",
+        "licenses": ["Apache-2.0"],
+        "cpes": ["cpe:2.3:a:apache:commons_io:2.6:*:*:*:*:*:*:*"],
+        "purl": "pkg:maven/commons-io/commons-io@2.6",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2022-45693",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2022-45693",
+        "namespace": "nvd:cpe",
+        "severity": "High",
+        "urls": ["https://nvd.nist.gov/vuln/detail/CVE-2022-45693"],
+        "description": "Jettison before v1.5.2 was discovered to contain a stack overflow via the map parameter.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "metrics": {
+              "baseScore": 7.5,
+              "exploitabilityScore": 3.9,
+              "impactScore": 3.6
+            },
+            "vendorMetadata": {},
+            "source": "nvd@nist.gov"
+          }
+        ],
+        "fix": {
+          "versions": ["1.5.2"],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [],
+      "artifact": {
+        "id": "a1b2c3d4e5f60008",
+        "name": "jettison",
+        "version": "1.5.0",
+        "type": "java-archive",
+        "language": "java",
+        "licenses": ["Apache-2.0"],
+        "cpes": ["cpe:2.3:a:jettison_project:jettison:1.5.0:*:*:*:*:*:*:*"],
+        "purl": "pkg:maven/org.codehaus.jettison/jettison@1.5.0",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2022-25647",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2022-25647",
+        "namespace": "nvd:cpe",
+        "severity": "High",
+        "urls": ["https://nvd.nist.gov/vuln/detail/CVE-2022-25647"],
+        "description": "The package com.google.code.gson:gson before 2.8.9 are vulnerable to Deserialization of Untrusted Data.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "metrics": {
+              "baseScore": 7.5,
+              "exploitabilityScore": 3.9,
+              "impactScore": 3.6
+            },
+            "vendorMetadata": {},
+            "source": "nvd@nist.gov"
+          }
+        ],
+        "fix": {
+          "versions": ["2.8.9"],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [],
+      "artifact": {
+        "id": "a1b2c3d4e5f60009",
+        "name": "gson",
+        "version": "2.8.6",
+        "type": "java-archive",
+        "language": "java",
+        "licenses": ["Apache-2.0"],
+        "cpes": ["cpe:2.3:a:google:gson:2.8.6:*:*:*:*:*:*:*"],
+        "purl": "pkg:maven/com.google.code.gson/gson@2.8.6",
+        "upstreams": []
+      }
+    },
+    {
+      "vulnerability": {
+        "id": "CVE-2020-36518",
+        "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2020-36518",
+        "namespace": "nvd:cpe",
+        "severity": "High",
+        "urls": ["https://nvd.nist.gov/vuln/detail/CVE-2020-36518"],
+        "description": "jackson-databind before 2.13.2.1 and 2.12.6.1 allows attackers to cause a denial of service via a large depth of nested objects.",
+        "cvss": [
+          {
+            "version": "3.1",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "metrics": {
+              "baseScore": 7.5,
+              "exploitabilityScore": 3.9,
+              "impactScore": 3.6
+            },
+            "vendorMetadata": {},
+            "source": "nvd@nist.gov"
+          }
+        ],
+        "fix": {
+          "versions": ["2.13.2.1"],
+          "state": "fixed"
+        },
+        "advisories": []
+      },
+      "relatedVulnerabilities": [],
+      "matchDetails": [],
+      "artifact": {
+        "id": "a1b2c3d4e5f60010",
+        "name": "jackson-databind",
+        "version": "2.13.1",
+        "type": "java-archive",
+        "language": "java",
+        "licenses": ["Apache-2.0"],
+        "cpes": ["cpe:2.3:a:fasterxml:jackson-databind:2.13.1:*:*:*:*:*:*:*"],
+        "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.13.1",
+        "upstreams": []
+      }
+    }
+  ],
+  "source": {
+    "type": "directory",
+    "target": {
+      "path": "."
+    }
+  },
+  "distro": {
+    "name": "ubuntu",
+    "version": "20.04",
+    "idLike": ["debian"]
+  },
+  "descriptor": {
+    "name": "grype",
+    "version": "0.74.0",
+    "configuration": {}
+  }
+}

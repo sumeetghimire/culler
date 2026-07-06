@@ -1,0 +1,106 @@
+version: 2
+
+project_name: culler
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: culler
+    main: ./cmd/culler
+    binary: culler
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+
+archives:
+  - id: culler
+    format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - LICENSE
+      - README.md
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
+      - Merge pull request
+      - Merge branch
+
+brews:
+  - name: culler
+    homepage: https://github.com/sumeetghimire/culler
+    description: "Vulnerability triage engine — prioritize what actually needs fixing"
+    license: "Apache-2.0"
+    repository:
+      owner: sumeetghimire
+      name: homebrew-tap
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
+    install: |
+      bin.install "culler"
+    test: |
+      system "#{bin}/culler", "version"
+
+scoops:
+  - name: culler
+    homepage: https://github.com/sumeetghimire/culler
+    description: "Vulnerability triage engine"
+    license: "Apache-2.0"
+    repository:
+      owner: sumeetghimire
+      name: scoop-bucket
+
+dockers:
+  - image_templates:
+      - "ghcr.io/sumeetghimire/culler:{{ .Tag }}-amd64"
+    use: buildx
+    dockerfile: Dockerfile
+    build_flag_templates:
+      - "--platform=linux/amd64"
+      - "--label=org.opencontainers.image.created={{.Date}}"
+      - "--label=org.opencontainers.image.version={{.Version}}"
+  - image_templates:
+      - "ghcr.io/sumeetghimire/culler:{{ .Tag }}-arm64"
+    use: buildx
+    goarch: arm64
+    dockerfile: Dockerfile
+    build_flag_templates:
+      - "--platform=linux/arm64"
+
+docker_manifests:
+  - name_template: "ghcr.io/sumeetghimire/culler:{{ .Tag }}"
+    image_templates:
+      - "ghcr.io/sumeetghimire/culler:{{ .Tag }}-amd64"
+      - "ghcr.io/sumeetghimire/culler:{{ .Tag }}-arm64"
+  - name_template: "ghcr.io/sumeetghimire/culler:latest"
+    image_templates:
+      - "ghcr.io/sumeetghimire/culler:{{ .Tag }}-amd64"
+      - "ghcr.io/sumeetghimire/culler:{{ .Tag }}-arm64"
+
+release:
+  github:
+    owner: sumeetghimire
+    name: culler
+  draft: false
+  prerelease: auto

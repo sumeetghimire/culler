@@ -1,0 +1,104 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2024-01-15T10:00:00Z",
+    "tools": [{"vendor": "CycloneDX", "name": "cdxgen", "version": "9.0.0"}]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:maven/org.apache.struts/struts2-core@2.5.30",
+      "name": "struts2-core",
+      "version": "2.5.30",
+      "purl": "pkg:maven/org.apache.struts/struts2-core@2.5.30"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:npm/axios@0.21.1",
+      "name": "axios",
+      "version": "0.21.1",
+      "purl": "pkg:npm/axios@0.21.1"
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/django@3.2.18",
+      "name": "Django",
+      "version": "3.2.18",
+      "purl": "pkg:pypi/django@3.2.18"
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "id": "CVE-2023-50164",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-50164"
+      },
+      "ratings": [
+        {
+          "source": {"name": "NVD"},
+          "score": 9.8,
+          "severity": "critical",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "description": "Apache Struts vulnerable to path traversal attack leading to remote code execution.",
+      "affects": [
+        {
+          "ref": "pkg:maven/org.apache.struts/struts2-core@2.5.30",
+          "versions": [{"version": "2.5.30", "status": "affected"}]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2021-3749",
+      "source": {
+        "name": "GitHub",
+        "url": "https://github.com/advisories/GHSA-4w2v-q235-vp99"
+      },
+      "ratings": [
+        {
+          "source": {"name": "GitHub"},
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "axios ReDoS vulnerability — regex used to parse HTTP headers is vulnerable to ReDoS.",
+      "affects": [
+        {
+          "ref": "pkg:npm/axios@0.21.1",
+          "versions": [{"version": "0.21.1", "status": "affected"}]
+        }
+      ]
+    },
+    {
+      "id": "CVE-2023-41164",
+      "source": {
+        "name": "NVD",
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-41164"
+      },
+      "ratings": [
+        {
+          "source": {"name": "NVD"},
+          "score": 7.5,
+          "severity": "high",
+          "method": "CVSSv31",
+          "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "description": "Django potential DoS via very long strings in internationalization utilities.",
+      "affects": [
+        {
+          "ref": "pkg:pypi/django@3.2.18",
+          "versions": [{"version": "3.2.18", "status": "affected"}]
+        }
+      ]
+    }
+  ]
+}
