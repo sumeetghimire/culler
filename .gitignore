@@ -1,4 +1,4 @@
-culler
+/culler
 *.exe
 coverage.txt
 dist/
