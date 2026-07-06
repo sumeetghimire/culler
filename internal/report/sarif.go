@@ -12,13 +12,13 @@ import (
 // SARIF 2.1.0 output — valid for GitHub Code Scanning upload.
 
 type sarifLog struct {
-	Schema  string      `json:"$schema"`
-	Version string      `json:"version"`
-	Runs    []sarifRun  `json:"runs"`
+	Schema  string     `json:"$schema"`
+	Version string     `json:"version"`
+	Runs    []sarifRun `json:"runs"`
 }
 
 type sarifRun struct {
-	Tool    sarifTool    `json:"tool"`
+	Tool    sarifTool     `json:"tool"`
 	Results []sarifResult `json:"results"`
 }
 
@@ -42,10 +42,10 @@ type sarifRule struct {
 }
 
 type sarifResult struct {
-	RuleID    string         `json:"ruleId"`
-	Level     string         `json:"level"` // error, warning, note
-	Message   sarifMessage   `json:"message"`
-	Locations []sarifLocation `json:"locations,omitempty"`
+	RuleID     string                 `json:"ruleId"`
+	Level      string                 `json:"level"` // error, warning, note
+	Message    sarifMessage           `json:"message"`
+	Locations  []sarifLocation        `json:"locations,omitempty"`
 	Properties map[string]interface{} `json:"properties,omitempty"`
 }
 
@@ -80,8 +80,8 @@ func WriteSARIF(w io.Writer, result *model.ScanResult) error {
 			desc += " (" + f.Severity + ")"
 		}
 		rules = append(rules, sarifRule{
-			ID:   f.ID,
-			Name: strings.ReplaceAll(f.ID, "-", ""),
+			ID:               f.ID,
+			Name:             strings.ReplaceAll(f.ID, "-", ""),
 			ShortDescription: sarifMessage{Text: desc},
 			Properties: map[string]string{
 				"tier": f.Tier.String(),

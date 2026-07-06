@@ -16,22 +16,22 @@ type trivyReport struct {
 }
 
 type trivyResult struct {
-	Target          string             `json:"Target"`
-	Type            string             `json:"Type"`
-	Vulnerabilities []trivyVuln        `json:"Vulnerabilities"`
+	Target          string      `json:"Target"`
+	Type            string      `json:"Type"`
+	Vulnerabilities []trivyVuln `json:"Vulnerabilities"`
 }
 
 type trivyVuln struct {
-	VulnerabilityID  string     `json:"VulnerabilityID"`
-	PkgName          string     `json:"PkgName"`
-	InstalledVersion string     `json:"InstalledVersion"`
-	FixedVersion     string     `json:"FixedVersion"`
-	Severity         string     `json:"Severity"`
-	CVSS             trivyCVSS  `json:"CVSS"`
+	VulnerabilityID  string    `json:"VulnerabilityID"`
+	PkgName          string    `json:"PkgName"`
+	InstalledVersion string    `json:"InstalledVersion"`
+	FixedVersion     string    `json:"FixedVersion"`
+	Severity         string    `json:"Severity"`
+	CVSS             trivyCVSS `json:"CVSS"`
 }
 
 type trivyCVSS struct {
-	NVD  *trivyCVSSEntry `json:"nvd"`
+	NVD    *trivyCVSSEntry `json:"nvd"`
 	RedHat *trivyCVSSEntry `json:"redhat"`
 }
 

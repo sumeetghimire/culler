@@ -25,9 +25,9 @@ type osvSource struct {
 }
 
 type osvPackage struct {
-	Package     osvPkg        `json:"package"`
-	Groups      []osvGroup    `json:"groups"`
-	Vulnerabilities []osvVuln `json:"vulnerabilities"`
+	Package         osvPkg     `json:"package"`
+	Groups          []osvGroup `json:"groups"`
+	Vulnerabilities []osvVuln  `json:"vulnerabilities"`
 }
 
 type osvPkg struct {
@@ -53,13 +53,13 @@ type osvSeverity struct {
 }
 
 type osvAffected struct {
-	Package osvPkg    `json:"package"`
+	Package osvPkg     `json:"package"`
 	Ranges  []osvRange `json:"ranges"`
 }
 
 type osvRange struct {
-	Type   string       `json:"type"`
-	Events []osvEvent   `json:"events"`
+	Type   string     `json:"type"`
+	Events []osvEvent `json:"events"`
 }
 
 type osvEvent struct {
