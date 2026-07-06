@@ -109,8 +109,10 @@ main() {
 
   DEST=$(install_dir)
   say "Installing to ${DEST}/culler..."
-  mv "$TMPDIR/culler" "$DEST/culler" 2>/dev/null || mv "$TMPDIR/culler.exe" "$DEST/culler.exe"
-  chmod +x "$DEST/culler" 2>/dev/null || true
+  BINARY_PATH=$(find "$TMPDIR" -type f -name "$BINARY" | head -1)
+  [ -z "$BINARY_PATH" ] && err "Could not find binary '$BINARY' in extracted archive"
+  mv "$BINARY_PATH" "$DEST/$BINARY"
+  chmod +x "$DEST/$BINARY" 2>/dev/null || true
 
   say "culler ${VERSION} installed successfully!"
 
