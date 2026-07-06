@@ -54,4 +54,4 @@ jobs:
 
       - name: Smoke test (grype fixture)
         if: matrix.os != 'windows-latest'
-        run: ./culler testdata/grype.json --offline --all
+        run: ./culler testdata/grype.json --all
