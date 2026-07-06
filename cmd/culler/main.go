@@ -346,7 +346,7 @@ func persistLastScan(result *model.ScanResult) {
 		return
 	}
 	defer f.Close()
-	json.NewEncoder(f).Encode(result)
+	_ = json.NewEncoder(f).Encode(result)
 }
 
 func loadLastScan() (*model.ScanResult, error) {
