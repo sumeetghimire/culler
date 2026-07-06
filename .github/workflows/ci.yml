@@ -28,7 +28,7 @@ jobs:
 
       - name: golangci-lint
         if: matrix.os == 'ubuntu-latest'
-        uses: golangci/golangci-lint-action@v4
+        uses: golangci/golangci-lint-action@v6
         with:
           version: latest
 
@@ -37,7 +37,7 @@ jobs:
 
       - name: Upload coverage
         if: matrix.os == 'ubuntu-latest'
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           file: coverage.txt
 
