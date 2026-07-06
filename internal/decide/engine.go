@@ -8,9 +8,9 @@ import (
 
 // Config holds tunable thresholds for the decision engine.
 type Config struct {
-	EPSSThreshold   float64 // default 0.088 — OUT-OF-CYCLE threshold
-	EPSSPercentile  float64 // default 0.90  — SCHEDULED threshold
-	CVSSThreshold   float64 // default 7.0   — SCHEDULED threshold
+	EPSSThreshold  float64 // default 0.088 — OUT-OF-CYCLE threshold
+	EPSSPercentile float64 // default 0.90  — SCHEDULED threshold
+	CVSSThreshold  float64 // default 7.0   — SCHEDULED threshold
 }
 
 // DefaultConfig returns the default decision thresholds from the spec.

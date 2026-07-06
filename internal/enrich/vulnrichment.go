@@ -37,8 +37,8 @@ type vrCVEDoc struct {
 }
 
 type vrADPContainer struct {
-	Title   string      `json:"title"`
-	Metrics []vrMetric  `json:"metrics"`
+	Title   string     `json:"title"`
+	Metrics []vrMetric `json:"metrics"`
 }
 
 type vrCNAContainer struct {
@@ -53,7 +53,7 @@ type vrMetric struct {
 }
 
 type vrSSVCOther struct {
-	Type    string      `json:"type"`
+	Type    string        `json:"type"`
 	Content vrSSVCContent `json:"content"`
 }
 
@@ -166,7 +166,7 @@ func (v *VulnrichmentEnricher) fetchCVE(id string) (*vrResult, error) {
 	// Write to disk cache
 	if err := os.MkdirAll(filepath.Dir(path), 0755); err == nil {
 		if f, err := os.Create(path); err == nil {
-			json.NewEncoder(f).Encode(doc)
+			_ = json.NewEncoder(f).Encode(doc)
 			f.Close()
 		}
 	}

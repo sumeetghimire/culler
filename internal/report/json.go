@@ -10,19 +10,19 @@ import (
 
 // JSONFinding is the documented JSON output schema for a single finding.
 type JSONFinding struct {
-	ID        string   `json:"id"`
-	Package   string   `json:"package"`
-	Version   string   `json:"version"`
-	Ecosystem string   `json:"ecosystem"`
-	FixedIn   []string `json:"fixed_in"`
-	Source    string   `json:"source"`
-	Severity  string   `json:"severity,omitempty"`
-	CVSS      *JSONCVSSInfo `json:"cvss,omitempty"`
-	KEV       JSONKEVInfo   `json:"kev"`
-	EPSS      JSONEPSSInfo  `json:"epss"`
+	ID        string          `json:"id"`
+	Package   string          `json:"package"`
+	Version   string          `json:"version"`
+	Ecosystem string          `json:"ecosystem"`
+	FixedIn   []string        `json:"fixed_in"`
+	Source    string          `json:"source"`
+	Severity  string          `json:"severity,omitempty"`
+	CVSS      *JSONCVSSInfo   `json:"cvss,omitempty"`
+	KEV       JSONKEVInfo     `json:"kev"`
+	EPSS      JSONEPSSInfo    `json:"epss"`
 	SSVC      *model.SSVCInfo `json:"ssvc,omitempty"`
-	Tier      string   `json:"tier"`
-	Reasoning []string `json:"reasoning"`
+	Tier      string          `json:"tier"`
+	Reasoning []string        `json:"reasoning"`
 }
 
 type JSONCVSSInfo struct {

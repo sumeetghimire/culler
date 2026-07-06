@@ -12,25 +12,25 @@ import (
 // CycloneDX JSON schema (CycloneDX 1.4/1.5 with vulnerabilities)
 
 type cdxReport struct {
-	BOMFormat      string           `json:"bomFormat"`
-	SpecVersion    string           `json:"specVersion"`
-	Components     []cdxComponent   `json:"components"`
-	Vulnerabilities []cdxVuln       `json:"vulnerabilities"`
+	BOMFormat       string         `json:"bomFormat"`
+	SpecVersion     string         `json:"specVersion"`
+	Components      []cdxComponent `json:"components"`
+	Vulnerabilities []cdxVuln      `json:"vulnerabilities"`
 }
 
 type cdxComponent struct {
-	Type      string `json:"type"`
-	Name      string `json:"name"`
-	Version   string `json:"version"`
-	BOMRef    string `json:"bom-ref"`
-	PURL      string `json:"purl"`
+	Type    string `json:"type"`
+	Name    string `json:"name"`
+	Version string `json:"version"`
+	BOMRef  string `json:"bom-ref"`
+	PURL    string `json:"purl"`
 }
 
 type cdxVuln struct {
-	ID       string       `json:"id"`
-	Source   cdxSource    `json:"source"`
-	Ratings  []cdxRating  `json:"ratings"`
-	Affects  []cdxAffects `json:"affects"`
+	ID      string       `json:"id"`
+	Source  cdxSource    `json:"source"`
+	Ratings []cdxRating  `json:"ratings"`
+	Affects []cdxAffects `json:"affects"`
 }
 
 type cdxSource struct {

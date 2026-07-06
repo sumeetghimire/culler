@@ -25,7 +25,7 @@ var cfg = DefaultConfig()
 func TestTierActNow_KEV(t *testing.T) {
 	ef := model.EnrichedFinding{
 		Finding: finding("CVE-2021-44228", 10.0),
-		KEV: model.KEVInfo{InKEV: true, DateAdded: "2021-12-10", RansomwareCampaign: true},
+		KEV:     model.KEVInfo{InKEV: true, DateAdded: "2021-12-10", RansomwareCampaign: true},
 	}
 	assignTier(&ef, cfg)
 	assert.Equal(t, model.TierActNow, ef.Tier)

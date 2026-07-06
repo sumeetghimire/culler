@@ -87,26 +87,6 @@ func loadJSON(name string, v interface{}) error {
 	return json.NewDecoder(f).Decode(v)
 }
 
-// saveJSON writes v as JSON to a cache file atomically.
-func saveJSON(name string, v interface{}) error {
-	path, err := cacheFile(name)
-	if err != nil {
-		return err
-	}
-	tmp := path + ".tmp"
-	f, err := os.Create(tmp)
-	if err != nil {
-		return fmt.Errorf("cannot write cache file %s: %w", path, err)
-	}
-	if err := json.NewEncoder(f).Encode(v); err != nil {
-		f.Close()
-		os.Remove(tmp)
-		return err
-	}
-	f.Close()
-	return os.Rename(tmp, path)
-}
-
 // downloadRaw fetches a URL and writes the raw bytes to a cache file,
 // printing a progress message to stderr.
 func downloadRaw(url, name, label string) error {
@@ -154,4 +134,3 @@ func rawCachePath(name string) (string, error) {
 func LastScanPath() (string, error) {
 	return cacheFile("last_scan.json")
 }
-
