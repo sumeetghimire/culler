@@ -111,8 +111,9 @@ main() {
   say "Installing to ${DEST}/culler..."
   BINARY_PATH=$(find "$TMPDIR" -type f -name "$BINARY" -print -quit)
   [ -z "$BINARY_PATH" ] && err "Could not find binary '$BINARY' in extracted archive"
-  mv "$BINARY_PATH" "$DEST/$BINARY"
-  chmod +x "$DEST/$BINARY" 2>/dev/null || true
+  rm -f "$DEST/$BINARY"
+  cp "$BINARY_PATH" "$DEST/$BINARY"
+  chmod +x "$DEST/$BINARY"
 
   say "culler ${VERSION} installed successfully!"
 
