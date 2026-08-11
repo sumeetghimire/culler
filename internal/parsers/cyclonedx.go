@@ -96,7 +96,7 @@ type cdxOSVVuln struct {
 }
 
 type cdxOSVAffected struct {
-	Package cdxOSVPkg   `json:"package"`
+	Package cdxOSVPkg     `json:"package"`
 	Ranges  []cdxOSVRange `json:"ranges"`
 }
 
