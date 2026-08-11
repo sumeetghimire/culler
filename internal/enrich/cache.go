@@ -16,13 +16,21 @@ var httpClient = &http.Client{
 	Timeout: 60 * time.Second,
 }
 
+// cacheDirOverride is used by tests to redirect the cache to a temp directory.
+var cacheDirOverride string
+
 // cacheDir returns (and creates if needed) ~/.cache/culler/
 func cacheDir() (string, error) {
-	home, err := os.UserHomeDir()
-	if err != nil {
-		return "", fmt.Errorf("cannot determine home directory: %w", err)
+	var dir string
+	if cacheDirOverride != "" {
+		dir = cacheDirOverride
+	} else {
+		home, err := os.UserHomeDir()
+		if err != nil {
+			return "", fmt.Errorf("cannot determine home directory: %w", err)
+		}
+		dir = filepath.Join(home, ".cache", "culler")
 	}
-	dir := filepath.Join(home, ".cache", "culler")
 	if err := os.MkdirAll(dir, 0755); err != nil {
 		return "", fmt.Errorf("cannot create cache directory %s: %w", dir, err)
 	}

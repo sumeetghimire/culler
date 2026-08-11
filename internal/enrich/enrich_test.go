@@ -16,16 +16,15 @@ import (
 	"github.com/sumeetghimire/culler/internal/model"
 )
 
-// overrideCacheDir points the cache to a temp dir for the duration of a test.
+// overrideCacheDir redirects the cache to a temp dir for the duration of a test.
+// Works on all platforms (does not rely on HOME env var).
 func overrideCacheDir(t *testing.T) string {
 	t.Helper()
-	dir := t.TempDir()
-	orig := os.Getenv("HOME")
-	// We can't easily replace cacheDir() without a global, so we patch HOME
-	// so that ~/.cache/culler lands inside the temp dir.
-	t.Setenv("HOME", dir)
-	_ = orig
-	return filepath.Join(dir, ".cache", "culler")
+	dir := filepath.Join(t.TempDir(), "culler-cache")
+	orig := cacheDirOverride
+	cacheDirOverride = dir
+	t.Cleanup(func() { cacheDirOverride = orig })
+	return dir
 }
 
 // ── KEV ──────────────────────────────────────────────────────────────────────
