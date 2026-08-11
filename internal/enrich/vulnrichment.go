@@ -23,10 +23,10 @@ import (
 	"github.com/sumeetghimire/culler/internal/model"
 )
 
-const (
-	vulnrichmentBaseURL = "https://raw.githubusercontent.com/cisagov/vulnrichment/main"
-	vrCacheSubdir       = "vr"
-)
+const vrCacheSubdir = "vr"
+
+// vulnrichmentBaseURL can be overridden in tests.
+var vulnrichmentBaseURL = "https://raw.githubusercontent.com/cisagov/vulnrichment/main"
 
 // vrCVEDoc is a partial CVE 5.0 JSON document from Vulnrichment.
 type vrCVEDoc struct {

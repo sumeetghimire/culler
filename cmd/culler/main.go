@@ -167,6 +167,13 @@ func runScan(input io.Reader, opts scanOpts) error {
 		return nil
 	}
 
+	// Load policy early so thresholds can influence the decide step
+	pol, err := policy.Load(opts.policyPath)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Warning: %v\n", err)
+		pol = &policy.Config{}
+	}
+
 	// Load enrichers
 	kevE := &enrich.KEVEnricher{}
 	epssE := &enrich.EPSSEnricher{}
@@ -182,21 +189,39 @@ func runScan(input io.Reader, opts scanOpts) error {
 	fmt.Fprintf(os.Stderr, "culler: KEV %d entries · EPSS %d entries · Vulnrichment (per-CVE)\n",
 		kevE.Count(), epssE.Count())
 
-	// Decide
+	// Decide — apply any policy threshold overrides
 	cfg := decide.DefaultConfig()
+	if pol.Thresholds != nil {
+		if pol.Thresholds.EPSSOutOfCycle > 0 {
+			cfg.EPSSThreshold = pol.Thresholds.EPSSOutOfCycle
+		}
+		if pol.Thresholds.EPSSPercentile > 0 {
+			cfg.EPSSPercentile = pol.Thresholds.EPSSPercentile
+		}
+		if pol.Thresholds.CVSSScheduled > 0 {
+			cfg.CVSSThreshold = pol.Thresholds.CVSSScheduled
+		}
+	}
 	enriched := decide.Run(findings, []decide.Enrich{kevE, epssE, vrE}, cfg)
 
-	// Apply policy
-	pol, err := policy.Load(opts.policyPath)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Warning: %v\n", err)
-		pol = &policy.Config{}
-	}
+	// Apply policy (ignore list + internet_facing tier bump)
 	enriched, suppressed := policy.Apply(enriched, pol)
 	var warnings []string
 	if len(suppressed) > 0 {
 		warnings = append(warnings, fmt.Sprintf("Suppressed by policy: %s", strings.Join(suppressed, ", ")))
 		fmt.Fprintf(os.Stderr, "culler: %d finding(s) suppressed by policy\n", len(suppressed))
+	}
+
+	// Apply --min-tier filter
+	if opts.minTier != "" {
+		minT := parseTier(opts.minTier)
+		var filtered []model.EnrichedFinding
+		for _, f := range enriched {
+			if f.Tier <= minT {
+				filtered = append(filtered, f)
+			}
+		}
+		enriched = filtered
 	}
 
 	result := &model.ScanResult{
