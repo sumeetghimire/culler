@@ -10,14 +10,25 @@
 
 ## Install
 
+### Step 1 — Install a scanner
+
+culler reads the output of an existing scanner. Pick one:
+
+```sh
+# Grype (recommended)
+brew install grype
+
+# or Trivy
+brew install trivy
+```
+
+> **Linux:** use the official install scripts at [grype](https://github.com/anchore/grype#installation) or [trivy](https://aquasecurity.github.io/trivy/latest/getting-started/installation/).
+
+### Step 2 — Install culler
+
 **One-liner (Linux / macOS)**
 ```sh
 curl -sSL https://raw.githubusercontent.com/sumeetghimire/culler/main/install.sh | sh
-```
-
-**Homebrew**
-```sh
-brew install sumeetghimire/tap/culler
 ```
 
 **Go**
@@ -30,13 +41,25 @@ go install github.com/sumeetghimire/culler/cmd/culler@latest
 docker run --rm -i ghcr.io/sumeetghimire/culler < report.json
 ```
 
+### Step 3 — Run it
+
+```sh
+cd your-project/
+grype dir:. -o json | culler
+```
+
+That's it. culler downloads threat-intel feeds on first run (~4 MB, one-time) and shows you what to fix first.
+
 ---
 
 ## Quickstart
 
 ```sh
-# Pipe Grype output straight in — no flags needed
+# Any project, any language — go to your project directory and run:
 grype dir:. -o json | culler
+
+# Or with Trivy
+trivy fs --format json . | culler
 ```
 
 ```
