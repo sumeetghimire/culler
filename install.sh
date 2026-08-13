@@ -111,9 +111,15 @@ main() {
   say "Installing to ${DEST}/culler..."
   BINARY_PATH=$(find "$TMPDIR" -type f -name "$BINARY" -print -quit)
   [ -z "$BINARY_PATH" ] && err "Could not find binary '$BINARY' in extracted archive"
-  rm -f "$DEST/$BINARY"
-  cp "$BINARY_PATH" "$DEST/$BINARY"
-  chmod +x "$DEST/$BINARY"
+  if cp "$BINARY_PATH" "$DEST/$BINARY" 2>/dev/null; then
+    chmod +x "$DEST/$BINARY"
+  elif command -v sudo >/dev/null 2>&1; then
+    say "Elevated permissions needed for ${DEST} — you may be prompted for your password."
+    sudo cp "$BINARY_PATH" "$DEST/$BINARY"
+    sudo chmod +x "$DEST/$BINARY"
+  else
+    err "Cannot write to ${DEST}. Try: sudo cp '$BINARY_PATH' '$DEST/$BINARY'"
+  fi
 
   say "culler ${VERSION} installed successfully!"
 
