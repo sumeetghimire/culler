@@ -3,7 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>culler — Vulnerability Triage Engine</title>
+
+  <!-- Primary SEO -->
+  <title>culler — Open Source CVE Triage & Vulnerability Prioritization for CI/CD Pipelines</title>
+  <meta name="description" content="culler is an open-source vulnerability triage engine that cuts through scanner noise. Integrates with Grype, Trivy, and OSV-Scanner to prioritize CVEs using CISA KEV, EPSS, and SSVC — built for DevSecOps, GitHub Actions, AWS, and Kubernetes CI/CD pipelines." />
+  <meta name="keywords" content="vulnerability triage, CVE prioritization, DevSecOps, CI/CD security, GitHub Actions security, container security scanning, SBOM analysis, software composition analysis, SCA tool, open source vulnerability scanner, CISA KEV, EPSS score, CVSS prioritization, Grype, Trivy, OSV-Scanner, CycloneDX, AWS security, Kubernetes security, Docker container scanning, supply chain security, cloud security, SARIF, vulnerability management, patch prioritization, security automation, AppSec, application security, NVD, SSVC" />
+  <meta name="author" content="Sumeet Ghimire" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://sumeetghimire.github.io/culler/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sumeetghimire.github.io/culler/" />
+  <meta property="og:title" content="culler — CVE Triage Engine for DevSecOps & CI/CD Pipelines" />
+  <meta property="og:description" content="Stop manually triaging hundreds of CVEs. culler layers CISA KEV, FIRST EPSS, and Vulnrichment SSVC on top of Grype, Trivy, or OSV output to prioritize vulnerabilities into four actionable tiers — built for GitHub Actions, AWS, and Kubernetes pipelines." />
+  <meta property="og:site_name" content="culler" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="culler — CVE Triage Engine for DevSecOps & CI/CD Pipelines" />
+  <meta name="twitter:description" content="Stop manually triaging hundreds of CVEs. culler layers CISA KEV, FIRST EPSS, and SSVC to prioritize vulnerabilities into four actionable tiers — built for GitHub Actions, AWS, and Kubernetes." />
+
+  <!-- Additional signals -->
+  <meta name="application-name" content="culler" />
+  <meta name="generator" content="culler vulnerability triage engine" />
+  <meta name="category" content="security, devops, devsecops" />
+  <meta name="classification" content="Security Software" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -590,6 +616,57 @@
       transform: translateY(0);
     }
 
+    /* ── FAQ ── */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .faq-item summary {
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: '+';
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--muted);
+      flex-shrink: 0;
+      margin-left: 16px;
+      transition: transform 0.2s;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-item p {
+      margin-top: 14px;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    .faq-item code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent2);
+      background: rgba(94,106,210,0.1);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 600px) {
       nav ul { display: none; }
@@ -601,20 +678,109 @@
 
 <canvas id="bg-canvas"></canvas>
 
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "culler",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Linux, macOS, Windows",
+      "description": "Open-source vulnerability triage engine that prioritizes CVE findings from Grype, Trivy, OSV-Scanner, and CycloneDX SBOMs using CISA KEV, FIRST EPSS, and Vulnrichment SSVC signals. Designed for DevSecOps and CI/CD pipelines including GitHub Actions, AWS CodePipeline, and Kubernetes.",
+      "url": "https://sumeetghimire.github.io/culler/",
+      "downloadUrl": "https://github.com/sumeetghimire/culler/releases",
+      "softwareVersion": "latest",
+      "license": "https://www.apache.org/licenses/LICENSE-2.0",
+      "programmingLanguage": "Go",
+      "codeRepository": "https://github.com/sumeetghimire/culler",
+      "keywords": "CVE triage, vulnerability prioritization, DevSecOps, CI/CD security, CISA KEV, EPSS, SSVC, Grype, Trivy, SBOM, container security, AWS security, Kubernetes security",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Sumeet Ghimire",
+        "url": "https://github.com/sumeetghimire"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is culler?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "culler is an open-source command-line vulnerability triage engine. It reads output from vulnerability scanners like Grype, Trivy, and OSV-Scanner, enriches findings with CISA KEV, FIRST EPSS, and Vulnrichment SSVC data, and assigns each CVE to one of four prioritized tiers: ACT NOW, OUT-OF-CYCLE, SCHEDULED, or DEFER."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does culler integrate with GitHub Actions CI/CD pipelines?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "culler ships a native GitHub Action. Add it to your workflow after a Grype or Trivy scan step, set fail-on: act-now to gate deployments on critical CVEs, and optionally upload SARIF output directly to GitHub Code Scanning for inline PR annotations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can culler scan AWS container images and ECR repositories?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Run Grype or Trivy against an AWS ECR image (e.g. grype registry:123456789.dkr.ecr.us-east-1.amazonaws.com/myapp:latest -o json) and pipe the output into culler. It works with any JSON output these scanners produce, regardless of the image registry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is EPSS and why does culler use it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EPSS (Exploit Prediction Scoring System) by FIRST.org is a machine-learning model that estimates the probability a CVE will be exploited in the wild within the next 30 days. culler uses EPSS scores to classify findings as OUT-OF-CYCLE when exploitation probability exceeds 8.8%, regardless of CVSS severity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does culler support SBOM-based scanning?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. culler natively parses CycloneDX SBOMs in JSON format. Generate an SBOM with cdxgen, syft, or similar tools and point culler at the file: culler scan sbom.json. It queries OSV.dev for vulnerability data and enriches results with KEV, EPSS, and SSVC."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is culler different from Dependabot or Snyk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dependabot and Snyk raise alerts for every detected CVE. culler is a triage layer on top of any scanner — it does not scan itself but enriches and prioritizes existing findings using real-world exploitation data (KEV, EPSS) so teams focus only on vulnerabilities with genuine exploitation risk, reducing alert fatigue dramatically."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <div class="wrapper">
 
   <!-- Nav -->
-  <nav>
+  <nav aria-label="Main navigation">
     <div class="inner">
-      <a class="nav-logo" href="#">culler<span>.</span></a>
-      <ul>
+      <a class="nav-logo" href="#" aria-label="culler home">culler<span>.</span></a>
+      <ul role="list">
         <li><a href="#how-it-works">How it works</a></li>
         <li><a href="#rules">Rules</a></li>
         <li><a href="#scanners">Scanners</a></li>
+        <li><a href="#cicd">CI/CD</a></li>
         <li><a href="#install" class="nav-cta">Install</a></li>
       </ul>
     </div>
   </nav>
+
+  <main id="main-content">
 
   <!-- Hero -->
   <section class="hero">
@@ -624,7 +790,8 @@
         <h1>Cut through<br/>scanner <span class="word-cut">noise.</span></h1>
         <p class="hero-sub">
           culler layers CISA KEV, FIRST EPSS, and Vulnrichment SSVC on top of Grype, Trivy, or OSV output
-          to collapse hundreds of findings into a short, prioritized, explainable queue.
+          to collapse hundreds of CVE findings into a short, prioritized, explainable queue — built for
+          DevSecOps teams running security scanning in GitHub Actions, AWS, Kubernetes, and Docker CI/CD pipelines.
         </p>
         <div class="hero-actions">
           <a href="#install" class="btn-primary">
@@ -807,6 +974,150 @@
 
   <div class="divider"></div>
 
+  <!-- CI/CD & Cloud -->
+  <section id="cicd" aria-label="CI/CD and cloud integrations">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">CI/CD &amp; Cloud</div>
+        <h2>Built for pipelines.<br/>Runs anywhere.</h2>
+        <p class="section-desc">
+          culler slots into any DevSecOps workflow. Gate deployments on critical CVEs, upload SARIF to
+          GitHub Code Scanning, or run it as a step in AWS CodePipeline, GitLab CI, or Kubernetes admission checks.
+        </p>
+      </div>
+      <div class="signals-grid" style="margin-top: 64px">
+
+        <div class="signal-card c3 fade-up" style="transition-delay: 0.05s">
+          <div class="signal-icon icon-ssvc" style="font-size: 11px">GHA</div>
+          <h3>GitHub Actions</h3>
+          <p>
+            Native <code style="font-family:'JetBrains Mono';font-size:12px;color:var(--accent2)">uses: sumeetghimire/culler/action@v1</code> step.
+            Set <strong>fail-on: act-now</strong> to block merges when actively exploited CVEs are detected.
+            Outputs SARIF directly to GitHub Code Scanning for inline PR annotations.
+          </p>
+        </div>
+
+        <div class="signal-card c1 fade-up" style="transition-delay: 0.1s">
+          <div class="signal-icon icon-kev" style="font-size: 11px">AWS</div>
+          <h3>AWS &amp; ECR Container Scanning</h3>
+          <p>
+            Scan Amazon ECR images with Grype or Trivy and pipe results into culler.
+            Works in AWS CodePipeline, CodeBuild, and ECS deployment workflows.
+            Output to JSON or SARIF for integration with AWS Security Hub.
+          </p>
+        </div>
+
+        <div class="signal-card c2 fade-up" style="transition-delay: 0.15s">
+          <div class="signal-icon icon-epss" style="font-size: 11px">K8S</div>
+          <h3>Kubernetes &amp; Docker</h3>
+          <p>
+            Run culler as a container via the official Docker image. Integrate into Helm chart CI,
+            OPA/Gatekeeper admission pipelines, or as a pre-deploy check in ArgoCD and Flux GitOps workflows.
+          </p>
+        </div>
+
+        <div class="signal-card c3 fade-up" style="transition-delay: 0.2s">
+          <div class="signal-icon icon-ssvc" style="font-size: 11px">SCA</div>
+          <h3>SBOM &amp; Software Supply Chain</h3>
+          <p>
+            Parse CycloneDX SBOMs generated by cdxgen or Syft to audit your entire software bill of materials.
+            Supports SCA workflows for open source dependency scanning, license compliance, and
+            supply chain security in regulated environments (SOC 2, FedRAMP, PCI-DSS).
+          </p>
+        </div>
+
+      </div>
+
+      <!-- GitHub Action snippet -->
+      <div class="fade-up" style="margin-top: 48px; transition-delay: 0.1s">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <div class="terminal-dot dot-red"></div>
+            <div class="terminal-dot dot-yellow"></div>
+            <div class="terminal-dot dot-green"></div>
+            <span class="terminal-title">.github/workflows/security.yml</span>
+          </div>
+          <div class="terminal-body">
+            <div class="t-muted">- name: <span class="t-cmd">Grype container scan</span></div>
+            <div class="t-muted">&nbsp;&nbsp;uses: <span class="t-cmd">anchore/scan-action@v3</span></div>
+            <div class="t-muted">&nbsp;&nbsp;with:</div>
+            <div class="t-muted">&nbsp;&nbsp;&nbsp;&nbsp;path: <span class="t-cmd">"."</span></div>
+            <div class="t-muted">&nbsp;&nbsp;&nbsp;&nbsp;output-format: <span class="t-cmd">json</span></div>
+            <div class="t-muted">&nbsp;&nbsp;&nbsp;&nbsp;output-file: <span class="t-cmd">grype.json</span></div>
+            <div>&nbsp;</div>
+            <div class="t-muted">- name: <span class="t-cmd">culler triage</span></div>
+            <div class="t-muted">&nbsp;&nbsp;uses: <span class="t-now">sumeetghimire/culler/action@v1</span></div>
+            <div class="t-muted">&nbsp;&nbsp;with:</div>
+            <div class="t-muted">&nbsp;&nbsp;&nbsp;&nbsp;scanner-output: <span class="t-cmd">grype.json</span></div>
+            <div class="t-muted">&nbsp;&nbsp;&nbsp;&nbsp;format: <span class="t-cmd">sarif</span></div>
+            <div class="t-muted">&nbsp;&nbsp;&nbsp;&nbsp;output-file: <span class="t-cmd">culler.sarif</span></div>
+            <div class="t-muted">&nbsp;&nbsp;&nbsp;&nbsp;fail-on: <span class="t-now">act-now</span></div>
+            <div>&nbsp;</div>
+            <div class="t-muted">- name: <span class="t-cmd">Upload to Code Scanning</span></div>
+            <div class="t-muted">&nbsp;&nbsp;uses: <span class="t-cmd">github/codeql-action/upload-sarif@v3</span></div>
+            <div class="t-muted">&nbsp;&nbsp;with:</div>
+            <div class="t-muted">&nbsp;&nbsp;&nbsp;&nbsp;sarif_file: <span class="t-cmd">culler.sarif</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (hidden visually but crawlable — good for long-tail search) -->
+  <section id="faq" aria-label="Frequently asked questions" style="background: var(--bg2)">
+    <div class="container">
+      <div class="fade-up">
+        <div class="section-label">FAQ</div>
+        <h2>Common questions.</h2>
+      </div>
+      <div style="margin-top: 48px; display: flex; flex-direction: column; gap: 0">
+
+        <details class="faq-item fade-up" style="transition-delay:0.05s">
+          <summary>How is culler different from Dependabot, Snyk, or GitHub Advanced Security?</summary>
+          <p>Dependabot, Snyk, and GitHub Advanced Security raise an alert for every detected CVE — often
+          hundreds per project. culler is a <strong>triage layer</strong> that sits on top of any scanner output
+          and uses real-world exploitation signals (CISA KEV, EPSS, SSVC) to collapse that list to the handful
+          of CVEs that actually need immediate attention. It dramatically reduces alert fatigue without replacing
+          your existing scanner.</p>
+        </details>
+
+        <details class="faq-item fade-up" style="transition-delay:0.1s">
+          <summary>Can I use culler to scan AWS ECR or GCR container images?</summary>
+          <p>Yes. Pull the image locally or use Grype/Trivy in registry mode:
+          <code>grype registry:123456789.dkr.ecr.us-east-1.amazonaws.com/myapp:latest -o json | culler</code>.
+          culler enriches findings regardless of where the image lives — AWS ECR, GCR, GHCR, Docker Hub, or
+          any private registry accessible to your scanner.</p>
+        </details>
+
+        <details class="faq-item fade-up" style="transition-delay:0.15s">
+          <summary>Does culler work offline or in air-gapped environments?</summary>
+          <p>Yes. On first run culler downloads and caches KEV, EPSS, and Vulnrichment data locally in
+          <code>~/.cache/culler/</code>. In air-gapped environments pre-populate this cache and run with
+          <code>culler scan report.json --offline</code>. The tool gracefully falls back to cached data
+          when network access is unavailable.</p>
+        </details>
+
+        <details class="faq-item fade-up" style="transition-delay:0.2s">
+          <summary>What output formats does culler support for CI/CD integration?</summary>
+          <p>culler outputs: <strong>terminal</strong> (ANSI color, human-readable), <strong>JSON</strong>
+          (machine-readable with full provenance for downstream processing), <strong>SARIF</strong> (upload
+          to GitHub Code Scanning, Azure DevOps, or AWS Security Hub), and <strong>Markdown</strong> (paste
+          into PR comments or Confluence pages). Use <code>--format sarif</code> for CI/CD pipelines.</p>
+        </details>
+
+        <details class="faq-item fade-up" style="transition-delay:0.25s">
+          <summary>How do I suppress a false positive or accepted risk?</summary>
+          <p>Create a <code>.culler.yaml</code> policy file. Add an ignore rule with a reason and optional
+          expiry date. culler will skip that CVE until the expiry date, then surface it again automatically.
+          This gives you an auditable, time-boxed exception workflow compliant with SOC 2 and FedRAMP controls.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- Install -->
   <section id="install" class="install-section">
     <div class="container">
@@ -856,16 +1167,25 @@
     </div>
   </section>
 
+  </main><!-- /main -->
+
   <!-- Footer -->
   <div class="divider"></div>
   <footer>
     <div class="inner">
-      <span>culler &mdash; Apache 2.0 License</span>
+      <div>
+        <span>culler &mdash; Open Source CVE Triage Engine &mdash; Apache 2.0</span>
+        <div style="margin-top: 8px; font-size: 12px; color: #4a4a6a; max-width: 420px; line-height: 1.6;">
+          Vulnerability prioritization for DevSecOps, GitHub Actions, AWS, Kubernetes, Docker, and CI/CD security pipelines.
+          Integrates with Grype, Trivy, OSV-Scanner, and CycloneDX SBOMs.
+        </div>
+      </div>
       <div class="footer-links">
         <a href="https://github.com/sumeetghimire/culler">GitHub</a>
         <a href="https://github.com/sumeetghimire/culler/blob/main/CONTRIBUTING.md">Contributing</a>
         <a href="https://github.com/sumeetghimire/culler/blob/main/SECURITY.md">Security</a>
         <a href="https://github.com/sumeetghimire/culler/blob/main/docs/policy.md">Policy docs</a>
+        <a href="https://github.com/sumeetghimire/culler/blob/main/docs/decision-rules.md">Decision rules</a>
       </div>
     </div>
   </footer>
